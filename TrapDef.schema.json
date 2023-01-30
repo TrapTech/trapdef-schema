@@ -91,7 +91,7 @@
         "dockerRunnerDefinition": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Configuration specific to the Docker sensor."
+            "description": "Configuration specific to the Docker sensor.",
             "properties": {
                 "dockerComposePath": {
                     "type": "string",
@@ -118,7 +118,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the bait template."
+                    "description": "Type of the bait template.",
                     "enum": [
                         "PowershellTemplate",
                         "PowershellScript"
@@ -129,7 +129,7 @@
                     "description": "Path to the template for the bait file. This must be a relativepath, contained within the trap zip file."
                 },
                 "targetPathTemplate": {
-                    "description": "For PowershellTemplate, defines the path that the file will be created on the host machine."
+                    "description": "For PowershellTemplate, defines the path that the file will be created on the host machine.",
                     "oneOf": [
                         {
                             "type": "null"
