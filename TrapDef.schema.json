@@ -40,7 +40,7 @@
             "type": "array",
             "description": "List of runner (sensor) types that this trap supports.",
             "items": {
-                "$ref": "#/definitions/RunnerType"
+                "$ref": "#/definitions/runnerType"
             }
         },
         "dockerRunnerDefinition": {
@@ -50,7 +50,7 @@
                     "type": "null"
                 },
                 {
-                    "$ref": "#/definitions/DockerRunnerDefinition"
+                    "$ref": "#/definitions/dockerRunnerDefinition"
                 }
             ]
         },
@@ -73,7 +73,7 @@
                 {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Bait"
+                        "$ref": "#/definitions/bait"
                     }
                 }
             ],
