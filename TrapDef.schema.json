@@ -3,6 +3,14 @@
     "title": "JSON Schema for TrapDef format",
     "type": "object",
     "additionalProperties": false,
+    "required": [
+        "def",
+        "name",
+        "identifier",
+        "authors",
+        "version",
+        "supportedRunners"
+    ],
     "properties": {
         "def": {
             "type": "integer",
@@ -18,10 +26,7 @@
             "description": "Unique trap definition identifier."
         },
         "description": {
-            "type": [
-                "null",
-                "string"
-            ],
+            "type": "string",
             "description": "A longer description of the trap."
         },
         "authors": {
@@ -45,38 +50,17 @@
         },
         "dockerRunnerDefinition": {
             "description": "Configuration specific to the Docker sensor. Only define when SupportedRunners includes Docker.",
-            "oneOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "$ref": "#/definitions/dockerRunnerDefinition"
-                }
-            ]
+            "$ref": "#/definitions/dockerRunnerDefinition"
         },
         "customOptions": {
             "description": "JSON Schema for custom options that can be requested during trap creation in TrapInit. For best results, use property list only.",
-            "oneOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "$ref": "http://json-schema.org/draft-04/schema"
-                }
-            ]
+            "$ref": "http://json-schema.org/draft-04/schema"
         },
         "baits": {
-            "oneOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/bait"
-                    }
-                }
-            ],
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/bait"
+            },
             "description": "A list of baits that can be generated for this trap. Appears in TrapInit UI."
         }
     },
@@ -92,6 +76,10 @@
             "type": "object",
             "additionalProperties": false,
             "description": "Configuration specific to the Docker sensor.",
+            "required": [
+                "dockerComposePath",
+                "imagesPath"
+            ],
             "properties": {
                 "dockerComposePath": {
                     "type": "string",
@@ -107,6 +95,12 @@
             "type": "object",
             "additionalProperties": false,
             "definitions": "A bait that can be generated for this trap.",
+            "required": [
+                "name",
+                "description",
+                "type",
+                "templateFile"
+            ],
             "properties": {
                 "name": {
                     "type": "string",
@@ -130,14 +124,7 @@
                 },
                 "targetPathTemplate": {
                     "description": "For PowershellTemplate, defines the path that the file will be created on the host machine.",
-                    "oneOf": [
-                        {
-                            "type": "null"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             }
         }
