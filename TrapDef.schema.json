@@ -14,7 +14,7 @@
     "properties": {
         "def": {
             "type": "string",
-            "description": "Version of TrapDef schema. Should be set to 1.0"
+            "description": "Version of TrapDef schema. Should be set to 1.0",
             "enum": ["1.0"]
         },
         "name": {
