@@ -65,16 +65,8 @@
             "description": "A list of baits that can be generated for this trap. Appears in TrapInit UI."
         },
         "ports": {
-            "oneOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "$ref": "#/definitions/port"
-                }
-
-            ],
-            "description": "Dictionary of custom ports defined by the author of a specific trap. Also allow define default port properties."
+            "$ref": "#/definitions/port",
+            "description": "Allows defining additional custom ports, and changing properties of the default port every trap exposes."
         }
     },
     "definitions": {
@@ -151,7 +143,8 @@
                 ],
                 "properties" : {
                     "name" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "description": "Name of the port displayed in the UI"
                     },
                     "type" : {
                         "type": "string",
@@ -160,7 +153,8 @@
                             "ssh",
                             "rdp",
                             "other"
-                        ]
+                        ],
+                        "description": "Type of the port"
                     },
                     "defaultValue" : {
                         "oneOf": [
@@ -170,7 +164,8 @@
                             {
                                 "type": "number"
                             }
-                        ]
+                        ],
+                        "description": "Default port value hinted to the user"
                     }
                 }
             }
