@@ -53,6 +53,10 @@
             "description": "Configuration specific to the Docker sensor. Only define when SupportedRunners includes Docker.",
             "$ref": "#/definitions/dockerRunnerDefinition"
         },
+        "experimentalFeatures": {
+            "description": "Configuration of experimental features. Only define when SupportedRunners includes Docker.",
+            "$ref": "#/definitions/experimentalFeatures"
+        },
         "customOptions": {
             "description": "JSON Schema for custom options that can be requested during trap creation in TrapInit. For best results, use property list only.",
             "$ref": "http://json-schema.org/draft-04/schema"
@@ -76,6 +80,20 @@
             "enum": [
                 "Docker"
             ]
+        },
+        "experimentalFeatures": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Configuration of experimental features.",
+            "required": [
+                "useNetworkHostMode"
+            ],
+            "properties": {
+                "useNetworkHostMode": {
+                    "type": "boolean",
+                    "description": "Allow the use of host networking mode in docker-compose."
+                }
+            }
         },
         "dockerRunnerDefinition": {
             "type": "object",
