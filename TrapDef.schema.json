@@ -138,7 +138,8 @@
                     "description": "Type of the bait template.",
                     "enum": [
                         "PowershellTemplate",
-                        "PowershellScript"
+                        "PowershellScript",
+                        "PlainScript"
                     ]
                 },
                 "templateFile": {
