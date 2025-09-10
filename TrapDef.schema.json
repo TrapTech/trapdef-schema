@@ -149,6 +149,10 @@
                 "targetPathTemplate": {
                     "description": "For PowershellTemplate, defines the path that the file will be created on the host machine.",
                     "type": "string"
+                },
+                "fileExtension": {
+                    "description": "For PlainScript, define the file extension that will be downloaded from the TrapInit panel.",
+                    "type": "string"
                 }
             }
         },
